@@ -18,4 +18,17 @@ public class LibraryTest {
         assertArrayEquals(expectOutput, trueOutput);
         assertArrayEquals(expectOutputOdd, trueOutputOdd);
     }
+    @Test
+    public void testBinarySearch(){
+        int inputArray [] = {1,2,3,4,5,6,7};
+        int inputSearch = 5;
+        int expectOutput = 4;
+        int trueOutput = BinarySearch.BinarySearch(inputArray,inputSearch);
+        assertEquals(trueOutput,expectOutput);
+        inputArray [] = {1,2,3,4,5,6,7, 0};
+        inputSearch = 23;
+        expectOutput = -1;
+        trueOutput = BinarySearch.BinarySearch(inputArray,inputSearch);
+        assertEquals(trueOutput,expectOutput);
+    }
 }
