@@ -7,25 +7,29 @@ public class LinkedList {
 
     }
     public void addNode(String input){
-        if (head == null){
-            Node prevNode = new Node(input);
+        if(head == null){
+
+            Node newNode = new Node(input);
+            head = newNode;
+            System.out.println(head.input);
         } else {
-            Node nextNode = new Node(input);
-            nextNode.next = head;
-            head = nextNode;
+            Node new2Node = new Node(input);
+            new2Node.next = head;
+
         }
     }
 
     public String toString(){
         String output = "";
         Node currentNode = this.head;
-        boolean isNull = false;
 
-        while (isNull == false){
-            if (currentNode.input == null) isNull = true;
-            output = output + currentNode.input + " and ";
+        while (currentNode.next != null){
 
+
+            output += currentNode.input + " and ";
+            currentNode =currentNode.next;
         }
+//        output = output + currentNode.input + " and ";
         output = output + "NULL";
         System.out.println(output);
         return output;
@@ -34,11 +38,44 @@ public class LinkedList {
     public Boolean includes(String inputCheck){
         Node currentNode = this.head;
         while (currentNode != null){
-            if (currentNode.input == inputCheck){
+            if (currentNode.input.contains(inputCheck)){
                 return true;
-            }
+            }else currentNode = currentNode.next;
         }
         return false;
 
     }
+    public void append(String input){
+        Node currentNode = this.head;
+        if (currentNode.next == null){
+            Node newNode = new Node(input);
+        }else {
+            while (currentNode.next != null) {
+                currentNode = currentNode.next;
+            }
+            Node appendNode = new Node(input);
+            currentNode.next = appendNode;
+        }
+    }
+    public void insertBefore(String lookVal, String input){
+        Node currentNode = this.head;
+        Node nextNode = currentNode.next;
+        while (!nextNode.input.contains(lookVal)){
+            currentNode = currentNode.next;
+            nextNode = currentNode.next;
+            if(currentNode.next == null) return;
+        }
+        Node insertBeforeNode = new Node(input, nextNode.next);
+        currentNode.next = insertBeforeNode;
+    }
+    public void insertAfter(String lookVal, String input){
+        Node currentNode = this.head;
+        while (currentNode.input != lookVal){
+            currentNode = currentNode.next;
+            if(currentNode.next == null) return;
+        }
+        Node insertAfterNode = new Node(input, currentNode.next);
+        currentNode.next = insertAfterNode;
+    }
+
 }

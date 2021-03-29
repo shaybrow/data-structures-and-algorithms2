@@ -12,4 +12,4 @@ The length of the array affects the time and space 1 to 1.
 
 ## Solution
 
-- !()[assets/ShiftArray.png0]
+- !()[assets/ShiftArray.png]
