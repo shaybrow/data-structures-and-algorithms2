@@ -3,6 +3,7 @@
  */
 package challenges;
 
+import challenges.LinkedList.LinkedList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -25,10 +26,33 @@ public class LibraryTest {
         int expectOutput = 4;
         int trueOutput = BinarySearch.BinarySearch(inputArray,inputSearch);
         assertEquals(trueOutput,expectOutput);
-        inputArray [] = {1,2,3,4,5,6,7, 0};
+        int inputArray2 [] = {1,2,3,4,5,6,7,20};
         inputSearch = 23;
         expectOutput = -1;
         trueOutput = BinarySearch.BinarySearch(inputArray,inputSearch);
         assertEquals(trueOutput,expectOutput);
     }
+
+    @Test public void testEmptyLinkedList(){
+        LinkedList trueOutput = new LinkedList();
+        assertNull("", trueOutput.head);
+    }
+    @Test public void testLLHasValues(){
+        LinkedList trueOutput = new LinkedList();
+
+            trueOutput.addNode("something");
+//        System.out.println(trueOutput);
+//        System.out.println((trueOutput.includes("something")));
+        assertTrue(trueOutput.includes("something"));
+//        assertTrue(trueOutput.includes("something3"));
+    }
+    @Test public void testLLAppendBeforeAfter(){
+        LinkedList trueOutput = new LinkedList();
+        trueOutput.addNode("something");
+        trueOutput.append("last");
+        System.out.println(trueOutput);
+        trueOutput.insertBefore("last","2ndlast");
+        trueOutput.insertAfter("something", "2nd");
+        System.out.println(trueOutput);
+}
 }

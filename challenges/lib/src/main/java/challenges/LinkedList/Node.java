@@ -5,7 +5,11 @@ public class Node {
     Node next; // indicates the node that follows the current node
 
     public Node (String input){
-        input = input;
-        next = null;
+        this.input = input;
+        this.next = null;
+    }
+    public Node (String input, Node next){
+        this.input = input;
+        this.next = next;
     }
 }
