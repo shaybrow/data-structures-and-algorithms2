@@ -54,7 +54,38 @@ public class LibraryTest {
         trueOutput.insertBefore("last","2ndlast");
         trueOutput.insertAfter("something", "2nd");
         System.out.println(trueOutput);
+//        the order should be something 2nd 2ndlast and last
         String expectOutput = "something and 2nd and 2ndlast and last and NULL";
         assertEquals(expectOutput, trueOutput.toString());
 }
+
+    @Test public void testDoubleLinkedList (){
+        LinkedList trueOutput = new LinkedList();
+        trueOutput.addNode("something");
+        trueOutput.append("last");
+        trueOutput.setDoubleLinkedList();
+        boolean tailExists = false;
+        if (trueOutput.tail != null) tailExists = true;
+        assertTrue(tailExists);
+
+    }
+    @Test public void testFindKthFromTheEnd (){{
+        LinkedList linkL = new LinkedList();
+//        order: first, something, last
+        linkL.addNode("something");
+        linkL.addNode("first");
+        linkL.append("last");
+        String expect = "last";
+        String trueO = linkL.findKthFromEnd(0);
+        assertEquals(expect, trueO);
+        expect = "something";
+        trueO = linkL.findKthFromEnd(1);
+        assertEquals(expect, trueO);
+        expect = "first";
+        trueO = linkL.findKthFromEnd(2);
+        assertEquals(expect, trueO);
+    }
+    }
+
+
 }

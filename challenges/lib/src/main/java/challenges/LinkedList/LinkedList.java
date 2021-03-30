@@ -3,6 +3,7 @@ package challenges.LinkedList;
 public class LinkedList {
 
     public Node head;
+    public Node tail;
     public LinkedList(){
 
     }
@@ -78,5 +79,59 @@ public class LinkedList {
         Node insertAfterNode = new Node(input, currentNode.next);
         currentNode.next = insertAfterNode;
     }
+    public void setDoubleLinkedList (){
+        Node currentNode = this.head;
+//        handles for LL size 1
+        if (currentNode.next == null){
+            this.tail = currentNode;
+            return;
+        }
+        Node nextNode = currentNode.next;
+        nextNode.prev = currentNode;
+//        handles for LL size 2
+        if (nextNode.next == null){
+            this.tail = nextNode;
+            return;
+        }
+//      handles for LL size 2+
+//       Stephen helped me figure out while loops iterate tot the end
+        while (nextNode.next != null){
+            currentNode = currentNode.next;
+            nextNode = nextNode.next;
+            nextNode.prev = currentNode;
+//            If the node after nextNode is null nextNode must be the tail
 
+        }
+//        nextNode.prev = currentNode;
+        this.tail = nextNode;
+        return;
+    }
+    public String findKthFromEnd (int k){
+        setDoubleLinkedList();
+        if (this.tail == this.head) return "Exception LL has 1 node";
+//        checking for 0
+        if (k == 0) return this.tail.input;
+        Node currentNode = this.tail;
+//        checking for 1
+        Node prevNode = currentNode.prev;
+        if (k == 1) return prevNode.input;
+
+        int counter = 1;
+//        checking for 2+
+
+        while (k != counter){
+            currentNode = prevNode;
+            System.out.println(currentNode.input);
+            prevNode = prevNode.prev;
+            counter ++;
+            if (prevNode == this.head){
+                if (k > counter){
+                    return "Exception LL is shorter than k";
+                }
+            }
+
+        }
+
+        return prevNode.input;
+    }
 }
