@@ -3,18 +3,19 @@ package challenges.LinkedList;
 public class LinkedList {
 
     public Node head;
+    public Node tail;
     public LinkedList(){
 
     }
     public void addNode(String input){
-        if(head == null){
+        if(this.head == null){
 
             Node newNode = new Node(input);
-            head = newNode;
+            this.head = newNode;
             System.out.println(head.input);
         } else {
-            Node new2Node = new Node(input);
-            new2Node.next = head;
+            Node new2Node = new Node(input, this.head);
+             this.head = new2Node;
 
         }
     }
@@ -29,9 +30,9 @@ public class LinkedList {
             output += currentNode.input + " and ";
             currentNode =currentNode.next;
         }
-//        output = output + currentNode.input + " and ";
+        output = output + currentNode.input + " and ";
         output = output + "NULL";
-        System.out.println(output);
+//        System.out.println(output);
         return output;
     }
 
@@ -48,7 +49,7 @@ public class LinkedList {
     public void append(String input){
         Node currentNode = this.head;
         if (currentNode.next == null){
-            Node newNode = new Node(input);
+            currentNode.next = new Node(input);
         }else {
             while (currentNode.next != null) {
                 currentNode = currentNode.next;
@@ -63,9 +64,10 @@ public class LinkedList {
         while (!nextNode.input.contains(lookVal)){
             currentNode = currentNode.next;
             nextNode = currentNode.next;
-            if(currentNode.next == null) return;
+            if(nextNode.next == null) return;
         }
-        Node insertBeforeNode = new Node(input, nextNode.next);
+
+        Node insertBeforeNode = new Node(input, nextNode);
         currentNode.next = insertBeforeNode;
     }
     public void insertAfter(String lookVal, String input){
@@ -77,5 +79,59 @@ public class LinkedList {
         Node insertAfterNode = new Node(input, currentNode.next);
         currentNode.next = insertAfterNode;
     }
+    public void setDoubleLinkedList (){
+        Node currentNode = this.head;
+//        handles for LL size 1
+        if (currentNode.next == null){
+            this.tail = currentNode;
+            return;
+        }
+        Node nextNode = currentNode.next;
+        nextNode.prev = currentNode;
+//        handles for LL size 2
+        if (nextNode.next == null){
+            this.tail = nextNode;
+            return;
+        }
+//      handles for LL size 2+
+//       Stephen helped me figure out while loops iterate tot the end
+        while (nextNode.next != null){
+            currentNode = currentNode.next;
+            nextNode = nextNode.next;
+            nextNode.prev = currentNode;
+//            If the node after nextNode is null nextNode must be the tail
 
+        }
+//        nextNode.prev = currentNode;
+        this.tail = nextNode;
+        return;
+    }
+    public String findKthFromEnd (int k){
+        setDoubleLinkedList();
+        if (this.tail == this.head) return "Exception LL has 1 node";
+//        checking for 0
+        if (k == 0) return this.tail.input;
+        Node currentNode = this.tail;
+//        checking for 1
+        Node prevNode = currentNode.prev;
+        if (k == 1) return prevNode.input;
+
+        int counter = 1;
+//        checking for 2+
+
+        while (k != counter){
+            currentNode = prevNode;
+            System.out.println(currentNode.input);
+            prevNode = prevNode.prev;
+            counter ++;
+            if (prevNode == this.head){
+                if (k > counter){
+                    return "Exception LL is shorter than k";
+                }
+            }
+
+        }
+
+        return prevNode.input;
+    }
 }
