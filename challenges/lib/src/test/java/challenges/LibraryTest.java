@@ -54,5 +54,7 @@ public class LibraryTest {
         trueOutput.insertBefore("last","2ndlast");
         trueOutput.insertAfter("something", "2nd");
         System.out.println(trueOutput);
+        String expectOutput = "something and 2nd and 2ndlast and last and NULL";
+        assertEquals(expectOutput, trueOutput.toString());
 }
 }

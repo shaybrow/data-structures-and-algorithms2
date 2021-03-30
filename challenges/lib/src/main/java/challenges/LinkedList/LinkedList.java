@@ -7,14 +7,14 @@ public class LinkedList {
 
     }
     public void addNode(String input){
-        if(head == null){
+        if(this.head == null){
 
             Node newNode = new Node(input);
-            head = newNode;
+            this.head = newNode;
             System.out.println(head.input);
         } else {
-            Node new2Node = new Node(input);
-            new2Node.next = head;
+            Node new2Node = new Node(input, this.head);
+             this.head = new2Node;
 
         }
     }
@@ -29,9 +29,9 @@ public class LinkedList {
             output += currentNode.input + " and ";
             currentNode =currentNode.next;
         }
-//        output = output + currentNode.input + " and ";
+        output = output + currentNode.input + " and ";
         output = output + "NULL";
-        System.out.println(output);
+//        System.out.println(output);
         return output;
     }
 
@@ -48,7 +48,7 @@ public class LinkedList {
     public void append(String input){
         Node currentNode = this.head;
         if (currentNode.next == null){
-            Node newNode = new Node(input);
+            currentNode.next = new Node(input);
         }else {
             while (currentNode.next != null) {
                 currentNode = currentNode.next;
@@ -63,9 +63,10 @@ public class LinkedList {
         while (!nextNode.input.contains(lookVal)){
             currentNode = currentNode.next;
             nextNode = currentNode.next;
-            if(currentNode.next == null) return;
+            if(nextNode.next == null) return;
         }
-        Node insertBeforeNode = new Node(input, nextNode.next);
+
+        Node insertBeforeNode = new Node(input, nextNode);
         currentNode.next = insertBeforeNode;
     }
     public void insertAfter(String lookVal, String input){
