@@ -17,4 +17,13 @@ public class Node {
         this.next = next;
         this.prev = prev;
     }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "input='" + input + '\'' +
+                ", next=" + next +
+                ", prev=" + prev +
+                '}';
+    }
 }

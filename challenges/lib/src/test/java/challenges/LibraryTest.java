@@ -69,7 +69,7 @@ public class LibraryTest {
         assertTrue(tailExists);
 
     }
-    @Test public void testFindKthFromTheEnd (){{
+    @Test public void testFindKthFromTheEnd (){
         LinkedList linkL = new LinkedList();
 //        order: first, something, last
         linkL.addNode("something");
@@ -84,8 +84,19 @@ public class LibraryTest {
         expect = "first";
         trueO = linkL.findKthFromEnd(2);
         assertEquals(expect, trueO);
-    }
-    }
 
+    }
+    @Test public void testZipLists(){
+        LinkedList linkL = new LinkedList();
+        LinkedList linkL2 = new LinkedList();
+        linkL.addNode("first1");
+        linkL.append("second1");
+        linkL.append("last1");
+        linkL2.addNode("first2");
+        linkL2.append("second2");
+        linkL2.append("last2");
+        linkL.zipLists(linkL, linkL2);
+        System.out.println(linkL);
+    }
 
 }
