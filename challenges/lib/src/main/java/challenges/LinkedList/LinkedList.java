@@ -134,4 +134,36 @@ public class LinkedList {
 
         return prevNode.input;
     }
+    public LinkedList zipLists(LinkedList one, LinkedList two){
+        Node current1Node = one.head;
+        Node next1Node = current1Node.next;
+        Node current2Node = two.head;
+        Node next2Node = current2Node.next;
+
+        while (current2Node.next != null || current1Node.next != null){
+            current1Node.next = current2Node;
+            current2Node.next = next1Node;
+            current1Node = next1Node;
+            current2Node = next2Node;
+            next1Node = next1Node.next;
+            next2Node = next2Node.next;
+
+        }
+        current1Node.next = current2Node;
+        System.out.println(current1Node);
+        System.out.println(current2Node);
+        
+//        while (current1Node.next != null){
+//            current1Node.next = next1Node;
+//            next1Node = next1Node.next;
+//        }
+//        while (current2Node.next != null){
+//            current2Node.next = next2Node;
+//            next2Node = next2Node.next;
+//        }
+
+//
+        return one;
+
+    }
 }
