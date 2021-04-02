@@ -134,25 +134,39 @@ public class LinkedList {
 
         return prevNode.input;
     }
+    public static LinkedList zipListsRecursive(LinkedList one, LinkedList two){
+        one.head = zipListsRecursive(one.head, two.head);
+        return one;
+    }
+    private static Node zipListsRecursive (Node one, Node two){
+        if (two == null) return one;
+        one.next = zipListsRecursive(two, one.next);
+        return one;
+    }
     public LinkedList zipLists(LinkedList one, LinkedList two){
         Node current1Node = one.head;
-        Node next1Node = current1Node.next;
-        Node current2Node = two.head;
-        Node next2Node = current2Node.next;
 
-        while (current2Node.next != null || current1Node.next != null){
+        Node current2Node = two.head;
+
+
+        while (current2Node != null && current1Node != null){
+            Node next2Node = current2Node.next;
+            Node next1Node = current1Node.next;
             current1Node.next = current2Node;
-            current2Node.next = next1Node;
+            if (next1Node == null){
+                current2Node.next = next1Node;
+            }
+
             current1Node = next1Node;
             current2Node = next2Node;
-            next1Node = next1Node.next;
-            next2Node = next2Node.next;
+//            next1Node = next1Node.next;
+//            next2Node = next2Node.next;
 
         }
-        current1Node.next = current2Node;
+//        current1Node.next = current2Node;
         System.out.println(current1Node);
         System.out.println(current2Node);
-        
+
 //        while (current1Node.next != null){
 //            current1Node.next = next1Node;
 //            next1Node = next1Node.next;
