@@ -1,20 +1,20 @@
 package challenges.stackandqueues;
 
-public class Node {
-    int val;
-    Node next; // indicates the node that follows the current node
-    Node prev;
-    public Node (int val){
+public class Node<T> {
+    T val;
+    Node<T> next; // indicates the node that follows the current node
+    Node<T> prev;
+    public Node (T val){
         this.val = val;
         this.next = null;
     }
 
-    public Node (int val, Node next){
+    public Node (T val, Node next){
         this.val = val;
         this.next = next;
 
     }
-    public Node (int val, Node next, Node prev){
+    public Node (T val, Node next, Node prev){
         this.val = val;
         this.next = next;
         this.prev = prev;
