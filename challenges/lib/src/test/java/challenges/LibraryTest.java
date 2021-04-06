@@ -95,7 +95,9 @@ public class LibraryTest {
         linkL2.addNode("first2");
         linkL2.append("second2");
         linkL2.append("last2");
-        linkL.zipLists(linkL, linkL2);
+        linkL.zipListsRecursive(linkL, linkL2);
+        String expect = "first1 and first2 and second1 and second2 and last1 and last2 and NULL";
+        assertEquals(expect, linkL.toString());
         System.out.println(linkL);
     }
 
