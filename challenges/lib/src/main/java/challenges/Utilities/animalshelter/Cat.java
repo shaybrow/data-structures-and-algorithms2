@@ -1,4 +1,4 @@
-package challenges.stackandqueues.animalshelter;
+package challenges.Utilities.animalshelter;
 
 public class Cat extends Animal{
 
