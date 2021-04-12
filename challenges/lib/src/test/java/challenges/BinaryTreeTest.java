@@ -49,7 +49,7 @@ public class BinaryTreeTest {
         }
         int [] expectOutPost = {9,1,3,5,2,7,4};
         assertArrayEquals(expectOutPost, trueOutPost);
-        
+
 
 
 
