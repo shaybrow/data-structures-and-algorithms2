@@ -1,10 +1,9 @@
 package challenges;
 
-import challenges.stackandqueues.animalshelter.Animal;
-import challenges.stackandqueues.animalshelter.AnimalShelter;
-import challenges.stackandqueues.animalshelter.Cat;
-import challenges.stackandqueues.animalshelter.Dog;
-import org.checkerframework.checker.units.qual.A;
+import challenges.Utilities.animalshelter.Animal;
+import challenges.Utilities.animalshelter.AnimalShelter;
+import challenges.Utilities.animalshelter.Cat;
+import challenges.Utilities.animalshelter.Dog;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

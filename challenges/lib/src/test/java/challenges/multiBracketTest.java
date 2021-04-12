@@ -1,6 +1,6 @@
 package challenges;
 
-import challenges.stackandqueues.MainFile;
+import challenges.Utilities.MainFile;
 import org.junit.Test;
 
 
@@ -22,12 +22,14 @@ public class multiBracketTest {
 //            testing same type bracket closed correct inside
             test = "[[]](df)";
             assertTrue(mainFile.multiBracketValidation(test));
-
 //            testing open bracket never closed
             test = "[]](df)";
             assertFalse(mainFile.multiBracketValidation(test));
 //            testing wrong brackets close
             test = "[{]}";
+            assertFalse(mainFile.multiBracketValidation(test));
+//            test end with open bracket
+            test = "()(";
             assertFalse(mainFile.multiBracketValidation(test));
         }
 }

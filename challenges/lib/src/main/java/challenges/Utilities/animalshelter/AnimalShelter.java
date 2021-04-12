@@ -1,4 +1,4 @@
-package challenges.stackandqueues.animalshelter;
+package challenges.Utilities.animalshelter;
 
 import challenges.stackandqueues.Queue;
 

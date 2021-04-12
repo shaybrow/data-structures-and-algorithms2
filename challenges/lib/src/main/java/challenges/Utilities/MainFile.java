@@ -1,4 +1,6 @@
-package challenges.stackandqueues;
+package challenges.Utilities;
+
+import challenges.stackandqueues.Stack;
 
 public class MainFile {
 
@@ -31,7 +33,8 @@ public class MainFile {
             }
 
         }
+        if (recent.isEmpty() == true) return true;
+        else return false;
 
-        return true;
     }
 }
