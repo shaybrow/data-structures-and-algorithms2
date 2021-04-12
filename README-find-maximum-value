@@ -1,0 +1,17 @@
+# Challenge Summary
+
+Create a method that returns the maximum value
+
+## Challenge Description
+
+Write an instance method called find-maximum-value. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+
+## Approach & Efficiency
+
+I used a recursive, in order traversal of the tree to determine the max value. This should be O(n) for time.
+
+## Solution
+
+- !()[assets/FindMaximumValue.jpg]
+
+- [code](challenges/lib/src/main/java/challenges/tree/BinaryTree.java)
