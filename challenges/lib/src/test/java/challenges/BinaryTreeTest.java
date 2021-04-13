@@ -6,6 +6,8 @@ import challenges.tree.BinaryTree;
 import challenges.tree.Node;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 public class BinaryTreeTest {
 
@@ -78,5 +80,26 @@ public class BinaryTreeTest {
         expectOut = 1000;
         actualOut = test.findMaxValue();
         assertEquals(expectOut, actualOut);
+    }
+    @Test
+    public void testBreadthFirstTraversal () throws Exception{
+        BinaryTree test = new BinaryTree(new Node(5));
+        Node left = new Node(3);
+        Node right = new Node(4);
+        test.root.left = left;
+        test.root.right = right;
+
+        String expectOut = "[5, 3, 4]";
+
+        ArrayList trueOut = test.breadthFirstTraversal();
+
+        assertEquals(expectOut, trueOut.toString());
+        left.left = new Node(9);
+        right.left = new Node(2);
+
+        trueOut = test.breadthFirstTraversal();
+        expectOut = "[5, 3, 4, 9, 2]";
+        assertEquals(expectOut, trueOut.toString());
+
     }
 }
