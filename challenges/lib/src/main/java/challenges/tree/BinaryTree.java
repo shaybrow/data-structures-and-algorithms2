@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class BinaryTree {
 public Node root;
+public int maxValue;
 
     public BinaryTree(Node root) {
         this.root = root;
@@ -11,8 +12,8 @@ public Node root;
     public BinaryTree() {
 
     }
-    //iterative
-    public int [] preOrder () throws Exception {
+    //iterative - doesn't work
+    public int [] preOrderIterative () throws Exception {
         if (this.root == null) throw new Exception("Oh snap, there's nothing to traverse");
         ArrayList<Integer> output = new ArrayList<>();
         output.add(0, root.val );
@@ -29,6 +30,26 @@ public Node root;
         }
         return actualOut;
     }
+    public int [] preOrder () throws Exception {
+        if (this.root == null) throw new Exception("Oh snap, there's nothing to traverse");
+        ArrayList<Integer> output = new ArrayList<>();
+        this._inOrder(this.root, output);
+
+        int [] actualOut = new int[output.size()];
+        for (int i = 0; i < output.size(); i++) {
+            actualOut[i] = output.get(i);
+        }
+        return actualOut;
+    }
+    public void _preOrder (Node input, ArrayList<Integer> inputList ) {
+        if (input == null) return;
+        inputList.add(input.val);
+        this._inOrder(input.left, inputList);
+        this._inOrder(input.right, inputList);
+
+    }
+
+
 //    stephen helped me understand recursive
     public int [] inOrder () throws Exception {
         if (this.root == null) throw new Exception("Oh snap, there's nothing to traverse");
@@ -62,9 +83,23 @@ public Node root;
     public void _postOrder (Node input, ArrayList<Integer> inputList ) {
         if (input == null) return;
 
-        this._inOrder(input.left, inputList);
+        this._postOrder(input.left, inputList);
         inputList.add(input.val);
-        this._inOrder(input.right, inputList);
+        this._postOrder(input.right, inputList);
+
+    }
+    public int findMaxValue () throws Exception {
+        if (this.root == null) throw new Exception("Can't find max on null tree");
+
+        this._findMaxValue(this.root);
+        return maxValue;
+    }
+    public void _findMaxValue (Node input) {
+        if (input == null) return ;
+//        if (maxValue == null) maxValue = input.val;
+        if (maxValue < input.val) maxValue = input.val;
+        this._findMaxValue(input.left);
+        this._findMaxValue(input.right);
 
     }
 

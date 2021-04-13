@@ -44,14 +44,39 @@ public class BinaryTreeTest {
         int [] expectOut = {9,1,3,2,7,4,5};
         assertArrayEquals(expectOut, trueOut);
         int [] trueOutPost = test.postOrder();
-        for (int i = 0; i < trueOutPost.length; i++) {
-            System.out.println(trueOutPost[i]);
-        }
-        int [] expectOutPost = {9,1,3,5,2,7,4};
+
+        int [] expectOutPost = {9,3,1,5,2,4,7};
         assertArrayEquals(expectOutPost, trueOutPost);
-        
 
+        int [] trueOutPre = test.preOrder();
 
+        int [] expectOutPre = {9,1,3,2,7,4,5};
+        for (int i = 0; i < trueOutPre.length; i++) {
+            System.out.println(trueOutPre[i]);
+        }
+        assertArrayEquals(expectOutPre, trueOutPre);
 
+    }
+
+    @Test
+    public void testFindMaxValue () throws Exception{
+        BinaryTree test = new BinaryTree(new Node(5));
+        Node left = new Node(3);
+        Node right = new Node(4);
+        test.root.left = left;
+        test.root.right = right;
+        left.left = new Node(9);
+        right.left = new Node(2);
+        left.right = new Node(1);
+        right.right = new Node(7);
+        int actualOut = test.findMaxValue();
+        int expectOut = 9;
+
+        assertEquals(expectOut, actualOut);
+
+        right.right.right = new Node(1000);
+        expectOut = 1000;
+        actualOut = test.findMaxValue();
+        assertEquals(expectOut, actualOut);
     }
 }
