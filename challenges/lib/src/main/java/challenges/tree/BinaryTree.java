@@ -1,5 +1,7 @@
 package challenges.tree;
 
+import challenges.stackandqueues.Queue;
+
 import java.util.ArrayList;
 
 public class BinaryTree {
@@ -102,5 +104,24 @@ public int maxValue;
         this._findMaxValue(input.right);
 
     }
+    public ArrayList breadthFirstTraversal () throws Exception {
+        if (this.root == null) throw new Exception("Can't traverse on null tree");
+        ArrayList output = new ArrayList();
+        Node temp = this.root;
+        output.add(temp.val);
+        Queue<Node> queue= new Queue();
+        if (temp.left != null) queue.enqueue(temp.left);
+        if (temp.right != null) queue.enqueue(temp.right);
+        while(queue.isEmpty() != true){
+            Node temp2 = queue.dequeue();
 
+            output.add(temp2.val);
+            if (temp2.left != null) queue.enqueue(temp2.left);
+            if (temp2.right != null) queue.enqueue(temp2.right);
+
+        }
+        return output;
+
+
+    }
 }
