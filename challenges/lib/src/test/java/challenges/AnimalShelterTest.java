@@ -1,9 +1,9 @@
 package challenges;
 
-import challenges.Utilities.animalshelter.Animal;
-import challenges.Utilities.animalshelter.AnimalShelter;
-import challenges.Utilities.animalshelter.Cat;
-import challenges.Utilities.animalshelter.Dog;
+import challenges.utilities.animalshelter.Animal;
+import challenges.utilities.animalshelter.AnimalShelter;
+import challenges.utilities.animalshelter.Cat;
+import challenges.utilities.animalshelter.Dog;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

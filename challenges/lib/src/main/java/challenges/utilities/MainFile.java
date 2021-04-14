@@ -1,4 +1,4 @@
-package challenges.Utilities;
+package challenges.utilities;
 
 import challenges.stackandqueues.Stack;
 
