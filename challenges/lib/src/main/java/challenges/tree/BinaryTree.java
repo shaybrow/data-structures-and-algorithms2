@@ -124,4 +124,19 @@ public int maxValue;
 
 
     }
+    public ArrayList<String> sInOrder () throws Exception {
+        if (this.root == null) throw new Exception("Oh snap, there's nothing to traverse");
+        ArrayList<String> output = new ArrayList<>();
+        this._sInOrder(this.root, output);
+
+
+        return output;
+    }
+    public void _sInOrder (Node input, ArrayList<String> inputList ) {
+        if (input == null) return;
+
+        this._sInOrder(input.left, inputList);
+        this._sInOrder(input.right, inputList);
+        inputList.add(input.value);
+    }
 }

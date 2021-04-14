@@ -1,6 +1,6 @@
 package challenges;
 
-import challenges.Utilities.MainFile;
+import challenges.utilities.MainFile;
 import org.junit.Test;
 
 

@@ -1,4 +1,4 @@
-package challenges.Utilities.animalshelter;
+package challenges.utilities.animalshelter;
 
 public class Cat extends Animal{
 

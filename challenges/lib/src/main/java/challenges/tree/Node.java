@@ -1,7 +1,8 @@
 package challenges.tree;
 
 public class Node {
-    int val;
+   public int val;
+   public String value;
   public Node left;
   public Node right;
     public Node(int val, Node left, Node right) {
@@ -19,4 +20,8 @@ public class Node {
         this.val = val;
 
     }
+    public Node (String value){
+        this.value = value;
+    }
+
 }

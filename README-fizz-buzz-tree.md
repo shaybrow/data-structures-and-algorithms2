@@ -14,10 +14,11 @@ Return a new tree.
 
 ## Approach & Efficiency
 
-
+Time: O(n)
+Space: O(1)
 
 ## Solution
 
-- !()[assets/AnimalShelter.png]
+- !()[assets/FizzBuzzTree.jpg]
 
-- [code](challenges/lib/src/main/java/challenges/stacksandqueues/animalshelter/AnimalShelter.java)
+- [code](challenges/lib/src/main/java/challenges/utilities/FizzBuzzTree.java)
