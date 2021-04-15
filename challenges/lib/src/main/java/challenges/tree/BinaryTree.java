@@ -139,4 +139,25 @@ public int maxValue;
         this._sInOrder(input.right, inputList);
         inputList.add(input.value);
     }
+    public boolean contains (int checkFor) {
+        if (this.root == null) return false;
+        ArrayList<Integer> output = new ArrayList<>();
+        this._postOrder(this.root, output);
+
+        for (int i = 0; i < output.size(); i++) {
+            int test = output.get(i);
+            if (test == checkFor) return true;
+
+        }
+        return false;
+    }
+    public void contains (Node input, ArrayList<Integer> inputList ) {
+        if (input == null) return;
+
+        this._postOrder(input.left, inputList);
+        inputList.add(input.val);
+        this._postOrder(input.right, inputList);
+
+    }
+
 }
