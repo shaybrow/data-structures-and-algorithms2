@@ -42,21 +42,41 @@ public class BinaryTreeTest {
         right.left = new Node(2);
         left.right = new Node(1);
         right.right = new Node(7);
+//        in order test
         int [] trueOut = test.inOrder();
         int [] expectOut = {9,1,3,2,7,4,5};
         assertArrayEquals(expectOut, trueOut);
+
+//        post order test
         int [] trueOutPost = test.postOrder();
 
         int [] expectOutPost = {9,3,1,5,2,4,7};
         assertArrayEquals(expectOutPost, trueOutPost);
 
+//        preorder test
         int [] trueOutPre = test.preOrder();
 
         int [] expectOutPre = {9,1,3,2,7,4,5};
-        for (int i = 0; i < trueOutPre.length; i++) {
-            System.out.println(trueOutPre[i]);
-        }
+
         assertArrayEquals(expectOutPre, trueOutPre);
+
+    }
+    @Test
+    public void testContains(){
+        BinaryTree test = new BinaryTree();
+        assertFalse(test.contains(0));
+//        test null
+        test.root = new Node (0);
+        Node left = new Node(3);
+        Node right = new Node(4);
+        test.root.left = left;
+        test.root.right = right;
+//        does not contain
+        assertFalse(test.contains(10);
+//        does contain node
+        assertTrue(test.contains(4));
+//        does contain root
+        assertTrue(test.contains(0));
 
     }
 
