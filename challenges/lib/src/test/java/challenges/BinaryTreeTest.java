@@ -72,7 +72,7 @@ public class BinaryTreeTest {
         test.root.left = left;
         test.root.right = right;
 //        does not contain
-        assertFalse(test.contains(10);
+        assertFalse(test.contains(10));
 //        does contain node
         assertTrue(test.contains(4));
 //        does contain root
