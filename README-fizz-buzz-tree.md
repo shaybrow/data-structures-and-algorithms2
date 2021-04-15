@@ -19,6 +19,6 @@ Space: O(1)
 
 ## Solution
 
-!()[assets/FizzBuzzTree.jpg]
+![](assets/FizzBuzzTree.jpg)
 
 - [code](challenges/lib/src/main/java/challenges/utilities/FizzBuzzTree.java)
