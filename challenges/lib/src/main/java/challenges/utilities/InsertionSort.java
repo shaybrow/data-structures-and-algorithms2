@@ -17,7 +17,7 @@ public class InsertionSort {
 
     }
 //    borrowed this from https://www.geeksforgeeks.org/insertion-sort/
-    static void printArray(int arr[])
+    public static void printArray(int arr[])
     {
         int n = arr.length;
         for (int i = 0; i < n; ++i)
