@@ -35,7 +35,7 @@ public int maxValue;
     public int [] preOrder () throws Exception {
         if (this.root == null) throw new Exception("Oh snap, there's nothing to traverse");
         ArrayList<Integer> output = new ArrayList<>();
-        this._inOrder(this.root, output);
+        this._preOrder(this.root, output);
 
         int [] actualOut = new int[output.size()];
         for (int i = 0; i < output.size(); i++) {
@@ -46,8 +46,8 @@ public int maxValue;
     public void _preOrder (Node input, ArrayList<Integer> inputList ) {
         if (input == null) return;
         inputList.add(input.val);
-        this._inOrder(input.left, inputList);
-        this._inOrder(input.right, inputList);
+        this._preOrder(input.left, inputList);
+        this._preOrder(input.right, inputList);
 
     }
 
