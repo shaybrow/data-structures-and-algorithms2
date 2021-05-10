@@ -1,8 +1,11 @@
 package challenges.graph;
 
+import challenges.stackandqueues.Queue;
+
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Set;
 
 public class Graph <T>{
     List<Node> nodes = new ArrayList<>();
@@ -50,4 +53,34 @@ public class Graph <T>{
 
         return output;
     }
+    public ArrayList <Node> breadthFirst (Node input){
+        if (nodes.contains(input) == false) return null;
+        ArrayList <Node> output = new ArrayList<>();
+        output.add(input);
+        Hashtable <Node, Integer> inputHT = this.getNeighbors(input);
+        Set <Node> inputKS = inputHT.keySet();
+
+        for (Node n : inputKS){
+            Boolean inOutput = false;
+            for (int i = 0; i < output.size(); i++) {
+                if (n == output.get(i)) inOutput = true;
+            }
+
+            if (inOutput == false) {
+
+                output.add(n);
+                Set<Node> set = this.getNeighbors(n).keySet();
+                for (Node node : set){
+
+                    if (output.contains(node) == false) output.add(node);
+
+                }
+
+            }
+
+        }
+        return output;
+    }
+
+
 }
