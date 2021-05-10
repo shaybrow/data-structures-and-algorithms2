@@ -1,9 +1,11 @@
 package challenges.graph;
 
+import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 public class Graph <T>{
-    List<Node> nodes;
+    List<Node> nodes = new ArrayList<>();
 
     public Graph (){
 
@@ -27,12 +29,25 @@ public class Graph <T>{
 
         if (nodes.contains(input2) || nodes.contains(input1)){
             new Edge (input1, input2, weight);
-        } else throw new Exception("Please insert nodes into graph before ");
+        } else throw new Exception("Please insert nodes into graph before declaring an edge");
 
     }
 
-    public List<Node> getNeighbors (Node input1){
+    public Hashtable<Node, Integer> getNeighbors (Node input){
+        Hashtable <Node, Integer> output = new Hashtable();
+        for (int i = 0; i < input.edges.size(); i++) {
+            Edge x = (Edge)input.edges.get(i);
+            Node node1 = x.node1;
+            Node node2 = x.node2;
+
+            int z = x.weight;
+
+            if (node1 != input) output.put(node1, z);
+            else output.put(node2, z);
 
 
+        }
+
+        return output;
     }
 }
