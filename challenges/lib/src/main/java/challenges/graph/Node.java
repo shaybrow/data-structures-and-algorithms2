@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Node<T> {
-    T val;
-List <Edge>edges;
+   public T val;
+    public List <Edge>edges;
     public Node (T val){
         this.val = val;
         this.edges = new ArrayList();
