@@ -2,10 +2,7 @@ package challenges.graph;
 
 import challenges.stackandqueues.Queue;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Graph <T>{
     List<Node> nodes = new ArrayList<>();
@@ -53,6 +50,30 @@ public class Graph <T>{
 
         return output;
     }
+    public ArrayList<Node> depthFirst (Node <T> input){
+        if (nodes.contains(input) == false) return null;
+        ArrayList<Node> output = new ArrayList<>();
+        Stack<Node<T>> stack = new Stack<>();
+        stack.push(input);
+
+//        a-b-c-d
+        while ( stack.isEmpty() != true){
+            Node <T> current = stack.peek();
+            output.add(stack.pop());
+            for (Edge <T> e : current.edges){
+                if(output.contains(e.node1) == false){
+                    stack.push(e.node1);
+                }
+                if(output.contains(e.node2) == false){
+                    stack.push(e.node2);
+                }
+
+            }
+
+        }
+        return output;
+    }
+
     public ArrayList <Node> breadthFirst (Node input){
         if (nodes.contains(input) == false) return null;
         ArrayList <Node> output = new ArrayList<>();

@@ -62,4 +62,29 @@ public class GraphTest {
         String expect = "[Node{value='1'}, Node{value='2'}, Node{value='3'}, Node{value='4'}]";
         assertEquals("should return all nodes", expect, trueOut.toString());
     }
+    @Test
+    public void depthFirstTest () throws Exception{
+        Graph <Integer> test = new Graph<>();
+        Node<Integer> node = new Node<>(1);
+        assertNull("should return null if input is not in graph",test.breadthFirst(node));
+
+        Node <Integer> n1 = test.addNode(1);
+        Node <Integer> n2 = test.addNode(2);
+        Node <Integer> n3 = test.addNode(3);
+        Node <Integer> n4 = test.addNode(4);
+
+        test.addEdge(n1, n2, 3);
+        ArrayList <Node> trueOut1 = test.depthFirst(n2);
+
+        String expect1 = "[Node{value='2'}, Node{value='1'}]";
+        assertEquals("Single edge should return both", expect1, trueOut1.toString());
+        test.addEdge(n2, n3, 3);
+        test.addEdge(n4, n1, 5);
+//
+//
+//
+        ArrayList <Node> trueOut = test.depthFirst(n1);
+        String expect = "[Node{value='1'}, Node{value='4'}, Node{value='2'}, Node{value='3'}]";
+        assertEquals("should return all nodes", expect, trueOut.toString());
+    }
 }
