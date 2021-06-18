@@ -36,6 +36,6 @@ public class UtilTest {
         expect.add("lmaoxd");
         assertEquals(trueOut, expect);
 
-       
+
     }
 }
